@@ -10,11 +10,13 @@ import {
   StatusBar,
 } from 'react-native';
 import { kJtoCal } from './src/converter';
+import { parseKjInput } from './src/input';
 
 export default function App() {
   const [input, setInput] = useState('');
 
-  const result = input === '' ? 0 : kJtoCal(parseFloat(input) || 0);
+  const parsed = parseKjInput(input);
+  const result = parsed === null ? 0 : kJtoCal(parsed);
 
   return (
     <SafeAreaView style={styles.container}>
