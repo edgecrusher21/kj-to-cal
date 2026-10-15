@@ -3,21 +3,32 @@
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
-    "expo": "~54.0.0",
-    "react": "19.1.7",
-    "react-native": "0.81.6"
+    "expo": "~54.0.37",
+    "expo-system-ui": "~6.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
+    "@types/jest": "29.5.14",
     "@types/react": "~19.1.0",
-    "jest": "^30.4.2",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "~10.0.0",
+    "eslint-plugin-react-native": "^5.0.0",
+    "expo-doctor": "^1.20.4",
+    "jest": "~29.7.0",
+    "knip": "^6.41.0",
     "ts-jest": "^29.4.11",
-    "typescript": "~5.6.0"
+    "typescript": "~5.9.2"
   },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "doctor": "expo-doctor",
+    "check:unused": "knip",
+    "check": "npm run lint && npm run typecheck && npm run check:unused && npm test -- --ci --runInBand && npm run doctor"
   },
   "private": true
 }
